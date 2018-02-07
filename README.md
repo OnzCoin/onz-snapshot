@@ -1,19 +1,19 @@
-#shift-snapshot
-A bash script to automate backups for SHIFT blockchain<br>
-v0.2
-For more information about SHIFT please visit - http://www.shiftnrg.org/
+#onz-snapshot
+A bash script to automate backups for ONZ blockchain<br>
+v0.3
+For more information about ONZ please visit - https://onzcoin.com
 
 ##Requisites
-    - This script works with postgres and shift_db, configured with shift user
+    - This script works with postgres and onz_db, configured with onz user
     - You need to have sudo privileges
 
 ##Installation
 Execute the following commands
 ```
 cd ~/
-git clone https://github.com/mrgrshift/shift-snapshot
-cd shift-snapshot/
-bash shift-snapshot.sh help
+git clone https://github.com/onzcoin/onz-snapshot
+cd onz-snapshot/
+bash onz-snapshot.sh help
 ```
 ##Available commands
 
@@ -28,7 +28,7 @@ bash shift-snapshot.sh help
 
 ###create
 Command _create_ is for create new snapshot, example of usage:<br>
-`bash shift-snapshot.sh create`<br>
+`bash onz-snapshot.sh create`<br>
 Automaticly will create a snapshot file in new folder called snapshot/.<br>
 Don't require to stop you node app.js instance.<br>
 Example of output:<br>
@@ -42,16 +42,16 @@ Also will create a line in the log, there you can see your snapshot at what bloc
 ###restore
 Command _restore_ is for restore the last snapshot found it in snapshot/ folder.<br>
 Example of usage:<br>
-`bash shift-snapshot.sh restore`<br>
+`bash onz-snapshot.sh restore`<br>
 <br>
-Automaticly will pick the last snapshot file in snapshot/ folder to restore the shift_db.<br>
+Automaticly will pick the last snapshot file in snapshot/ folder to restore the onz_db.<br>
 If you want to restore a specific file please (for this version) delete or move the other files in snapshot/ folder.<br>
 You can use the _log_ command to better pick up your restore file.<br>
 <br>
 ###log
 Display all the snapshots created. <br>
 Example of usage:<br>
-`bash shift-snapshot.sh log`<br>
+`bash onz-snapshot.sh log`<br>
 <br>
 Example of output:<br>
 ```
@@ -70,21 +70,24 @@ Schedule snapshot creation periodically, with the available parameters:
     - weekly
     - monthly
 
-Example: `bash shift-snapshot.sh schedule daily`
+Example: `bash onz-snapshot.sh schedule daily`
 <br>
 
 -------------------------------------------------------------
 
 ###Notice
-You will have a folder in ~/shift-snapshot/ called `snapshot/` where all your snapshots will be created and stored.
-If you want to use a snapshot from different place (official snapshot for example or other node) you will need to download the snapshot file (with prefix: shift_db*) and copy it to the `~/shift-snapshot/snapshot/` folder.
-After you copy the shift_db*.tar file you can restore the blockchain with: `bash shift-snapshot.sh restore` and will use the last file found in the snapshot/ folder.<br>
-If you use the `schedule` command be aware you will have a log file located in `~/shift-snapshot/cron.log` with this you will know what is happened with your schedule.
+You will have a folder in ~/onz-snapshot/ called `snapshot/` where all your snapshots will be created and stored.
+If you want to use a snapshot from different place (official snapshot for example or other node) you will need to download the snapshot file (with prefix: onz_db*) and copy it to the `~/onz-snapshot/snapshot/` folder.
+After you copy the onz_db*.tar file you can restore the blockchain with: `bash onz-snapshot.sh restore` and will use the last file found in the snapshot/ folder.<br>
+If you use the `schedule` command be aware you will have a log file located in `~/onz-snapshot/cron.log` with this you will know what is happened with your schedule.
 
 ###Upgrade
 If you are in a version prior to v0.2 you can upgrade with the following commands:
 ```
-cd ~/shift-snapshot/ 
+cd ~/onz-snapshot/ 
 git checkout .
 git pull
 ```
+
+###Credit
+This script is imported from shift project under github license.

@@ -21,7 +21,7 @@ if [ "\$USER" == "root" ]; then
   exit 1
 fi
 
-SHIFT_CONFIG=~/onz/config.json
+ONZ_CONFIG=~/onz/config.json
 DB_NAME="$(grep "database" $ONZ_CONFIG | cut -f 4 -d '"')"
 DB_USER="$(grep "user" $ONZ_CONFIG | cut -f 4 -d '"')"
 DB_PASS="$(grep "password" $ONZ_CONFIG | cut -f 4 -d '"' | head -1)"
